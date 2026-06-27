@@ -79,7 +79,12 @@ section{padding:5rem 0;}
 .precio-mini{display:flex;align-items:baseline;justify-content:center;gap:.7rem;margin-bottom:1.4rem;}
 .precio-mini .actual{font-family:'Bebas Neue',sans-serif;font-size:2.1rem;color:var(--verde);}
 .precio-mini .anterior{color:var(--rojo);text-decoration:line-through;font-size:1.05rem;}
-.micro-benef{color:var(--gris);font-size:.85rem;margin-top:1.2rem;}
+.micro-benef{
+    color:var(--gris);
+    font-size:.85rem;
+    margin-top:1.2rem;
+    text-align:center;
+}
 
 /* ---------- LOGROS (qué vas a lograr) ---------- */
 .grid-logros{display:grid;gap:1rem;margin-top:2.4rem;}
@@ -153,6 +158,35 @@ section{padding:5rem 0;}
 footer{padding:3rem 0 7rem;border-top:1px solid var(--borde);text-align:center;}
 footer .flogo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;margin-bottom:.7rem;text-transform:uppercase;}
 footer p{color:rgba(255,255,255,.35);font-size:.74rem;}
+
+/* ===== Ajustes ChatGPT ===== */
+#hero-boton{
+    display:flex;
+    margin:0 auto;
+    width:fit-content;
+}
+
+.btn-whatsapp{
+position:fixed;
+bottom:90px;
+right:22px;
+background:#25D366;
+color:white;
+padding:12px 18px;
+border-radius:999px;
+display:flex;
+align-items:center;
+gap:8px;
+font-weight:700;
+text-decoration:none;
+box-shadow:0 10px 25px rgba(0,0,0,.35);
+z-index:999;
+transition:.25s;
+}
+.btn-whatsapp:hover{
+transform:scale(1.05);
+}
+
 </style>
 </head>
 <body>
@@ -179,7 +213,7 @@ footer p{color:rgba(255,255,255,.35);font-size:.74rem;}
   // ---- ENLACES (cambia esto y se actualiza en todos los botones de la página) ----
   const ENLACES = {
     hotmart: 'https://pay.hotmart.com/K106351176W',
-    whatsapp: 'https://wa.me/521931974232'
+    whatsapp: 'https://wa.me/5299997066968'
   };
 
   // ---- VIDEO DEL HERO ----
@@ -212,7 +246,7 @@ footer p{color:rgba(255,255,255,.35);font-size:.74rem;}
     precioActual: '$347 MXN',
     precioAnterior: '$770 MXN',
     textoBoton: 'Quiero mi manual ahora',
-    microBeneficios: 'Acceso inmediato · Garantía de 7 días · Soporte por WhatsApp'
+    microBeneficios: '⚡ Acceso inmediato • 🛡️ 7 días de garantía • 💬 Soporte por WhatsApp'
   };
 
   // =====================================================================
@@ -236,12 +270,12 @@ footer p{color:rgba(255,255,255,.35);font-size:.74rem;}
   const INCLUYE = {
     titulo: 'Qué Incluye tu Compra',
     items: [
-      { titulo: 'Manual PDF profesional', texto: 'Más de 60 páginas, paso a paso, con acceso inmediato.' },
-      { titulo: 'Lista completa de materiales', texto: 'Todo lo que necesitas comprar antes de tu primer servicio.' },
-      { titulo: 'Checklist de control de calidad', texto: 'Para asegurar un resultado profesional en cada trabajo.' },
-      { titulo: 'Formato de garantía editable', texto: 'Listo para imprimir y entregar a tus clientes.' },
-      { titulo: 'Soporte directo por WhatsApp', texto: 'Para resolver tus dudas durante el proceso.' },
-      { titulo: 'App PROCAR', proximamente: true, texto: 'Registra tus servicios, tu lista de clientes y consulta tus ganancias semanales, mensuales y anuales.' }
+      { titulo: '🚀 Manual PDF profesional', texto: 'Más de 60 páginas, paso a paso, con acceso inmediato.' },
+      { titulo: '🧰 Lista completa de materiales', texto: 'Todo lo que necesitas comprar antes de tu primer servicio.' },
+      { titulo: '✅ Checklist de control de calidad', texto: 'Para asegurar un resultado profesional en cada trabajo.' },
+      { titulo: '📄 Formato de garantía editable', texto: 'Listo para imprimir y entregar a tus clientes.' },
+      { titulo: '💬 Soporte directo por WhatsApp', texto: 'Para resolver tus dudas durante el proceso.' },
+      { titulo: '📱 App PROCAR', proximamente: true, texto: 'Registra tus servicios, tu lista de clientes y consulta tus ganancias semanales, mensuales y anuales.' }
     ]
   };
 
@@ -261,7 +295,7 @@ footer p{color:rgba(255,255,255,.35);font-size:.74rem;}
   // SECCIÓN 5 — TESTIMONIOS (agrega, quita o reordena tarjetas aquí)
   // =====================================================================
   const TESTIMONIOS = {
-    titulo: 'Lo Que Dicen Quienes Ya lo Aplican',
+    titulo: '🔥 Lo Que Dicen Quienes Ya lo Aplican',
     tarjetas: [
       { texto: 'Recuperé lo que invertí en el manual con mi primer servicio, gracias bro.', nombre: 'Carlos M.', rol: 'Cliente verificado' },
       { texto: 'Ya habia restaurado faros antes, pero este manual me resolvio varias dudas que tenia.', nombre: 'Gerardo Rodriguez.', rol: 'Cliente verificado' },
@@ -644,5 +678,12 @@ initReveal();
 initStickyCTA();
 document.getElementById('sticky-boton') && (document.getElementById('sticky-boton').textContent = 'Comprar ahora — ' + HERO.precioActual);
 </script>
+
+<a href="https://wa.me/5299997066968?text=Hola,%20me%20interesa%20el%20Manual%20Profesional%20de%20Restauraci%C3%B3n%20de%20Faros.%20%C2%BFPodr%C3%ADas%20darme%20m%C3%A1s%20informaci%C3%B3n%3F"
+class="btn-whatsapp"
+target="_blank">
+💬 ¿Tienes dudas?
+</a>
+
 </body>
 </html>
