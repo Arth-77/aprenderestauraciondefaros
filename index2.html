@@ -5,24 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Manual Profesional de Restauración de Faros con Polímero Líquido</title>
 <meta name="description" content="Aprende restauración profesional de faros y recupera tu inversión desde tu primer cliente.">
-
-<!-- Open Graph / vista previa al compartir el link -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Aprende y Emprende">
-<meta property="og:title" content="Manual Profesional de Restauración de Faros con Polímero Líquido">
-<meta property="og:description" content="Aprende restauración profesional de faros y recupera tu inversión desde tu primer cliente.">
-<meta property="og:image" content="https://aprenderestauraciondefaros.vercel.app/fotos/hero-despues.webp">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:url" content="https://aprenderestauraciondefaros.vercel.app/">
-<meta property="og:locale" content="es_MX">
-
-<!-- Twitter / X -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Manual Profesional de Restauración de Faros con Polímero Líquido">
-<meta name="twitter:description" content="Aprende restauración profesional de faros y recupera tu inversión desde tu primer cliente.">
-<meta name="twitter:image" content="https://aprenderestauraciondefaros.vercel.app/fotos/hero-despues.webp">
-
 <link rel="icon" type="image/png" href="fotos/favicon.png">
 <!-- Meta Pixel Code -->
 <script>
@@ -61,35 +43,38 @@ src="https://www.facebook.com/tr?id=1766111441475549&ev=PageView&noscript=1"/>
   --negro2:#111111;
   --blanco:#FFFFFF;
   --gris:#BDBDBD;
-  --verde:#00FF88;      /* acento de marca: badges, checks, precio */
+  --verde:#00FF88;      /* único acento: botones, checks, precio, CTA */
   --verde-suave:rgba(0,255,136,.10);
-  --dorado:#FFC800;      /* único color para botones de compra (CTA) */
-  --dorado-suave:rgba(255,200,0,.12);
   --rojo:#9C2B2B;        /* solo para urgencia o precio anterior */
   --borde:rgba(255,255,255,0.10);
   --radius:22px;
   --ease:cubic-bezier(.22,.9,.32,1);
 }
 *{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{margin:0;background:var(--negro);color:var(--blanco);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
-img{max-width:100%;display:block;}
-.display{font-family:'Bebas Neue',sans-serif;text-transform:uppercase;letter-spacing:.01em;line-height:1.05;margin:0;font-weight:400;}
-p{margin:0;}
-.container{max-width:980px;margin:0 auto;padding:0 1.25rem;}
-section{padding:5rem 0;}
-@media(min-width:768px){section{padding:8rem 0;}}
-.texto-sec{color:var(--gris);font-size:1.02rem;line-height:1.65;max-width:560px;}
-.centro{text-align:center;margin-left:auto;margin-right:auto;}
-.verde{color:var(--verde);}
-.rojo{color:var(--rojo);}
 
+html{
+  scroll-behavior:smooth;
+  width:100%;
+  max-width:100%;
+  overflow-x:clip;
+}
+
+body{
+  margin:0;
+  width:100%;
+  max-width:100%;
+  background:var(--negro);
+  color:var(--blanco);
+  font-family:'Inter',sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:clip;
+}
 /* tarjeta de cristal — reutilizada en toda la página */
 .glass{background:rgba(255,255,255,0.035);backdrop-filter:blur(16px);border:1px solid var(--borde);border-radius:var(--radius);box-shadow:0 16px 40px -26px rgba(0,0,0,.6);}
 
 /* botón CTA — el link real se inyecta desde ENLACES.hotmart */
 .btn{font-family:'Inter',sans-serif;font-weight:700;font-size:1rem;border:none;cursor:pointer;border-radius:14px;padding:1.05rem 1.9rem;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;transition:transform .3s var(--ease), filter .3s var(--ease);text-decoration:none;}
-.btn-cta{background:var(--dorado);color:#231a00;box-shadow:0 10px 34px -10px rgba(255,200,0,.45);}
+.btn-cta{background:var(--verde);color:#06140c;box-shadow:0 10px 34px -10px rgba(0,255,136,.4);}
 .btn-cta:hover{transform:scale(1.025);filter:brightness(1.07);}
 .btn-cta:active{transform:scale(.98);}
 .btn-block{width:100%;}
@@ -435,7 +420,7 @@ section{padding:5rem 0;}
 /* ---------- STICKY CTA ---------- */
 .sticky-cta{position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:55;opacity:0;transform:translateY(20px);pointer-events:none;transition:opacity .35s var(--ease), transform .35s var(--ease);padding-bottom:env(safe-area-inset-bottom);}
 .sticky-cta.show{opacity:1;transform:translateY(0);pointer-events:auto;}
-.sticky-cta .btn{width:100%;font-size:1.02rem;padding:1.05rem;box-shadow:0 12px 34px -12px rgba(255,200,0,.5);}
+.sticky-cta .btn{width:100%;font-size:1.02rem;padding:1.05rem;box-shadow:0 12px 34px -12px rgba(0,255,136,.5);}
 
 /* ---------- WHATSAPP FLOTANTE ---------- */
 .btn-whatsapp{position:fixed;right:1.1rem;bottom:5.6rem;z-index:56;width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:1.5rem;text-decoration:none;box-shadow:0 8px 24px -6px rgba(0,0,0,.5);}
@@ -499,38 +484,60 @@ footer p{color:rgba(255,255,255,.35);font-size:.74rem;}
   letter-spacing:.12em;
   font-size:.78rem;
 }
+/* ===== CONVERSOR DE MONEDAS ===== */
 
-/* ---------- PAGAR POR TRANSFERENCIA (Mercado Pago) ---------- */
-.btn-transferencia{
-  background:transparent;
-  color:var(--blanco);
-  border:1.5px solid var(--borde);
-  margin-top:.8rem;
-}
-.btn-transferencia:hover{border-color:var(--dorado);color:var(--dorado);}
-.panel-transferencia{
-  max-height:0;
-  overflow:hidden;
-  transition:max-height .4s var(--ease);
+.precio-monedas{
+  margin:22px auto 0;
+  padding:18px;
   max-width:440px;
-  margin:0 auto;
-}
-.panel-transferencia.open{margin-top:1rem;}
-.panel-transferencia-inner{
+  text-align:center;
   border:1px solid var(--borde);
-  border-radius:16px;
+  border-radius:18px;
   background:rgba(255,255,255,.03);
-  padding:1.2rem 1.3rem;
-  text-align:left;
 }
-.panel-transferencia-inner p.info{color:var(--gris);font-size:.85rem;line-height:1.55;margin-bottom:1rem;}
-.dato-pago{display:flex;justify-content:space-between;align-items:center;gap:.8rem;padding:.65rem 0;border-bottom:1px solid var(--borde);}
-.dato-pago:last-of-type{border-bottom:none;}
-.dato-pago .etiqueta{color:var(--gris);font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;}
-.dato-pago .valor{font-weight:700;font-size:.92rem;word-break:break-all;text-align:right;}
-.dato-pago button{background:none;border:1px solid var(--borde);color:var(--verde);border-radius:8px;font-size:.7rem;font-weight:700;padding:.3rem .6rem;cursor:pointer;flex-shrink:0;}
-.dato-pago button:hover{border-color:var(--verde);}
-.nota-comprobante{margin-top:1rem;color:var(--gris);font-size:.8rem;line-height:1.5;}
+
+.precio-monedas h3{
+  margin:0 0 6px;
+  color:#fff;
+  font-size:1rem;
+}
+
+.precio-monedas p{
+  margin:0 0 14px;
+  color:var(--gris);
+  font-size:.82rem;
+}
+
+#selectorMoneda{
+  width:100%;
+  padding:13px 14px;
+  border-radius:12px;
+  border:1px solid var(--borde);
+  background:#171717;
+  color:#fff;
+  font-size:.95rem;
+  outline:none;
+}
+
+.precio-convertido{
+  margin-top:18px;
+}
+
+#precioFinal{
+  display:block;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2.8rem;
+  color:var(--verde);
+  line-height:1;
+}
+
+#codigoMoneda{
+  display:block;
+  margin-top:4px;
+  color:var(--gris);
+  letter-spacing:.12em;
+  font-size:.78rem;
+}
 
 </style>
 </head>
@@ -559,11 +566,24 @@ footer p{color:rgba(255,255,255,.35);font-size:.74rem;}
        de su título. Cámbialo en el campo "badge" de esa sección.
      ===================================================================================== -->
 <script>
-  // ---- ENLACES (cambia esto y se actualiza en todos los botones de la página) ----
+  // ---- ENLACES ----
   const ENLACES = {
     hotmart: 'https://pay.hotmart.com/K106351176W',
     whatsapp: 'https://wa.me/5219997066968'
   };
+
+  // Evento del píxel + abrir Hotmart
+  function irHotmart() {
+    if (typeof fbq === 'function') {
+      fbq('track', 'InitiateCheckout', {
+        value: 347,
+        currency: 'MXN'
+      });
+    }
+
+    window.open(ENLACES.hotmart, '_blank');
+  }
+</script>
 
   // ---- VIDEO DEL HERO ----
   // tipo: 'mp4' si subes un archivo de video, o 'embed' si usas un link de
@@ -575,10 +595,10 @@ footer p{color:rgba(255,255,255,.35);font-size:.74rem;}
 
   // ---- IMÁGENES (nombres descriptivos, una sola vez cada una) ----
   const IMAGENES = {
-    fotoAntesFaro:          'fotos/hero-antes.webp',
-    fotoDespuesFaro:        'fotos/hero-despues.webp',
-    fotoAplicandoPolimero:  'fotos/aplicando-polimero.webp',
-    fotoAutor:              'fotos/foto-autor.webp'
+    fotoAntesFaro:          'fotos/hero-antes.jpg',
+    fotoDespuesFaro:        'fotos/hero-despues.jpg',
+    fotoAplicandoPolimero:  'fotos/aplicando-polimero.jpg',
+    fotoAutor:              'fotos/foto-autor.jpg'
   };
 
   // ---- NOTA DE TRANSFERENCIA ----
@@ -639,12 +659,12 @@ footer p{color:rgba(255,255,255,.35);font-size:.74rem;}
     badge: { texto: 'VISTAZO REAL', emoji: '👀' },
     titulo: 'Mira Algunas Páginas del Manual',
     subtitulo: 'Contenido real, explicado con capturas, tablas y ejemplos — no solo texto.',
-    imagenes: ['fotos/pagina-1.webp',
-    'fotos/pagina-2.webp',
-    'fotos/pagina-3.webp',
-    'fotos/pagina-4.webp',
-    'fotos/pagina-5.webp',
-    'fotos/pagina-6.webp'],
+    imagenes: ['fotos/pagina-1.jpg',
+    'fotos/pagina-2.jpg',
+    'fotos/pagina-3.jpg',
+    'fotos/pagina-4.jpg',
+    'fotos/pagina-5.jpg',
+    'fotos/pagina-6.jpg'],
     fraseCierre: '¿Vas a seguir aprendiendo por prueba y error, o vas a aprenderlo con criterio técnico desde el inicio?',
     textoBoton: 'Quiero el manual'
   };
@@ -664,28 +684,28 @@ footer p{color:rgba(255,255,255,.35);font-size:.74rem;}
     {
       numero: 'Regalo 1',
       icono: 'graduacion',
-      imagen: 'fotos/regalo-1.webp',
+      imagen: 'fotos/regalo-1.jpg',
       titulo: 'Formato de Garantía Editable',
       texto: 'Plantilla lista para personalizar en Canva, imprimir y entregar a cada cliente.'
     },
     {
       numero: 'Regalo 2',
       icono: 'seguridad',
-      imagen: 'fotos/regalo-2.webp',
+      imagen: 'fotos/regalo-2.jpg',
       titulo: 'Checklist de Control de Calidad',
       texto: 'Verifica cada herramienta, material y paso antes de iniciar y antes de entregar el vehículo para reducir errores en cada servicio.'
     },
     {
       numero: 'Regalo 3',
       icono: 'proceso',
-      imagen: 'fotos/regalo-3.webp',
+      imagen: 'fotos/regalo-3.jpg',
       titulo: 'Soporte Directo por WhatsApp',
       texto: 'Resuelve tus dudas durante el proceso con atención y acompañamiento si lo necesitas.'
     },
     {
       numero: 'Regalo 4',
       icono: 'negocio',
-      imagen: 'fotos/regalo-4.webp',
+      imagen: 'fotos/regalo-4.jpg',
       titulo: 'App PROCAR (Próximamente)',
       texto: 'Registra clientes, servicios, garantias y consulta tus ganancias semanales, mensuales y anuales.'
     }
@@ -839,7 +859,7 @@ footer p{color:rgba(255,255,255,.35);font-size:.74rem;}
 
     <div class="comparador-wrap">
 <div class="sello">
-  <img src="fotos/sello-medalla.webp" alt="+3 años de experiencia real">
+  <img src="fotos/sello-medalla.png" alt="+3 años de experiencia real">
 </div>
       <div class="comparador" id="comparador-logros">
         <div class="comp-despues ph-despues" id="comp-despues"></div>
@@ -976,42 +996,13 @@ footer p{color:rgba(255,255,255,.35);font-size:.74rem;}
   <p class="usd" id="precio-usd"></p>
   <p class="nota-moneda" id="precio-nota-moneda"></p>
   <a href="#" class="btn btn-cta btn-cta-enlace btn-block" id="precio-boton"></a>
-
-  <button type="button" class="btn btn-transferencia btn-block" id="btn-toggle-transferencia">
-    Pagar por transferencia (Mercado Pago)
-  </button>
-
-  <div class="panel-transferencia" id="panel-transferencia">
-    <div class="panel-transferencia-inner">
-      <p class="info">📲 Mercado Pago acepta transferencias y pagos desde México y algunos otros países de Latinoamérica. Envía tu pago a estos datos y luego manda tu comprobante por WhatsApp para recibir tu manual de inmediato.</p>
-
-      <div class="dato-pago">
-        <span class="etiqueta">Nombre</span>
-        <span class="valor" id="dato-nombre">Arturo Iglesias</span>
-        <button type="button" class="btn-copiar" data-copy="Arturo Iglesias">Copiar</button>
-      </div>
-      <div class="dato-pago">
-        <span class="etiqueta">E-mail</span>
-        <span class="valor" id="dato-email">aprende.emprende010@gmail.com</span>
-        <button type="button" class="btn-copiar" data-copy="aprende.emprende010@gmail.com">Copiar</button>
-      </div>
-      <div class="dato-pago">
-        <span class="etiqueta">CLABE</span>
-        <span class="valor" id="dato-clabe">722969010206096832</span>
-        <button type="button" class="btn-copiar" data-copy="722969010206096832">Copiar</button>
-      </div>
-
-      <p class="nota-comprobante">✅ Después de transferir, envía tu comprobante por WhatsApp <a href="#" class="link-whatsapp-transferencia" style="color:var(--verde);">aquí</a> y recibirás el manual al instante.</p>
-    </div>
-  </div>
-
   <div class="garantia"><b>✓</b> <span id="precio-garantia"></span></div>
 </div>
 
 <!-- ===== CONVERSOR DE MONEDAS ===== -->
 <section class="precio-monedas">
-  <h3>Ver precio estimado en tu moneda</h3>
-  <p>Referencia aproximada. El monto final en tu método de pago puede variar ligeramente por la tasa de cambio del día.</p>
+  <h3>Ver precio en tu moneda</h3>
+  <p>Tipo de cambio actualizado automáticamente.</p>
 
   <select id="selectorMoneda">
   <option value="MXN">🇲🇽 Peso mexicano</option>
@@ -1113,8 +1104,14 @@ function ponFotoEnCaja(cajaId, url){
 }
 
 /* ---------- enlaces: un solo link de Hotmart para todos los botones ---------- */
+
 function aplicarEnlaces(){
-  document.querySelectorAll('.btn-cta-enlace').forEach(b => b.href = ENLACES.hotmart);
+
+  document.querySelectorAll('.btn-cta-enlace').forEach(b => {
+    b.href = "javascript:void(0)";
+    b.onclick = irHotmart;
+  });
+
 }
 
 /* ---------- nota de transferencia: el mismo texto en 3 lugares ---------- */
@@ -1144,7 +1141,7 @@ function renderVideo(){
         loop
         playsinline
         preload="metadata"
-        poster="fotos/portada-video.webp"
+        poster="fotos/portada-video.jpg"
         controls>
       </video>`
     : `<iframe
@@ -1350,44 +1347,6 @@ function initReveal(){
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 }
 
-/* ---------- pagar por transferencia: panel desplegable + copiar datos ---------- */
-function initTransferencia(){
-  const boton = document.getElementById('btn-toggle-transferencia');
-  const panel = document.getElementById('panel-transferencia');
-  if(!boton || !panel) return;
-
-  boton.addEventListener('click', ()=>{
-    const abierto = panel.classList.contains('open');
-    if(abierto){
-      panel.style.maxHeight = null;
-      panel.classList.remove('open');
-      boton.textContent = 'Pagar por transferencia (Mercado Pago)';
-    } else {
-      panel.classList.add('open');
-      panel.style.maxHeight = panel.scrollHeight + 'px';
-      boton.textContent = 'Ocultar datos de transferencia';
-    }
-  });
-
-  document.querySelectorAll('.btn-copiar').forEach(b=>{
-    b.addEventListener('click', async ()=>{
-      const texto = b.getAttribute('data-copy');
-      try{
-        await navigator.clipboard.writeText(texto);
-        const original = b.textContent;
-        b.textContent = '¡Copiado!';
-        setTimeout(()=> b.textContent = original, 1500);
-      }catch(e){ /* si el navegador bloquea el portapapeles, no pasa nada */ }
-    });
-  });
-
-  const linkWa = document.querySelector('.link-whatsapp-transferencia');
-  if(linkWa){
-    linkWa.href = ENLACES.whatsapp + '?text=' + encodeURIComponent('Hola, ya hice la transferencia por Mercado Pago para el manual de restauración de faros. Aquí está mi comprobante 👇');
-    linkWa.target = '_blank';
-  }
-}
-
 /* ---------- CTA flotante: aparece después del hero ---------- */
 function initStickyCTA(){
   const sticky = document.getElementById('sticky-cta');
@@ -1415,7 +1374,6 @@ renderVideo();
 initComparador();
 initReveal();
 initStickyCTA();
-initTransferencia();
 document.getElementById('sticky-boton') && (document.getElementById('sticky-boton').textContent = 'Comprar ahora — ' + HERO.precioActual);
 const PRECIO_MXN = 347;
 
@@ -1470,7 +1428,7 @@ selector.addEventListener("change", actualizarPrecio);
 cargarMonedas();
 </script>
 <a
-href="https://wa.me/529997066968?text=Hola,%20me%20interesa%20el%20manual.%20¿Podrías%20darme%20más%20información?"
+href="https://wa.me/5219997066968?text=Hola,%20me%20interesa%20el%20manual.%20¿Podrías%20darme%20más%20información?"
 class="btn-whatsapp"
 target="_blank">
 
