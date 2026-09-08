@@ -567,13 +567,11 @@ footer p{color:rgba(255,255,255,.35);font-size:.74rem;}
        de su título. Cámbialo en el campo "badge" de esa sección.
      ===================================================================================== -->
 <script>
-  // ---- ENLACES ----
   const ENLACES = {
-    hotmart: 'https://pay.hotmart.com/K106351176W',
-    whatsapp: 'https://wa.me/5219997066968'
+    hotmart: '...',
+    whatsapp: '...'
   };
 
-  // Evento del píxel + abrir Hotmart
   function irHotmart() {
     if (typeof fbq === 'function') {
       fbq('track', 'InitiateCheckout', {
@@ -581,17 +579,13 @@ footer p{color:rgba(255,255,255,.35);font-size:.74rem;}
         currency: 'MXN'
       });
     }
-
     window.open(ENLACES.hotmart, '_blank');
   }
-</script>
 
   // ---- VIDEO DEL HERO ----
-  // tipo: 'mp4' si subes un archivo de video, o 'embed' si usas un link de
-  // YouTube/Vimeo en formato insertar (ej: https://www.youtube.com/embed/ID)
   const VIDEO = {
     tipo: 'mp4',
-    url: 'videos/videopromo-web.mp4'   // ej: 'videos/demo-restauracion.mp4'  — déjalo vacío para ver el marcador de posición
+    url: 'videos/videopromo-web.mp4'
   };
 
   // ---- IMÁGENES (nombres descriptivos, una sola vez cada una) ----
