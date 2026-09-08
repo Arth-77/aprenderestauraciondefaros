@@ -253,55 +253,11 @@ section{padding:5rem 0;}
 .pagina-cta p{font-family:'Inter',sans-serif;font-weight:700;font-size:1.15rem;max-width:560px;margin:0 auto 1.3rem;line-height:1.4;}
 
 /* ---------- BONOS EXCLUSIVOS ---------- */
-
-.grid-bonos{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:1.1rem;
-  margin-top:2.2rem;
-}
-
-.bono-card{
-  padding:0;
-  overflow:hidden;
-  position:relative;
-  border-radius:22px;
-}
-
-.bono-numero{
-  position:absolute;
-  top:.9rem;
-  left:.9rem;
-  z-index:2;
-  background:rgba(0,0,0,.6);
-  backdrop-filter:blur(3px);
-  color:#fff;
-  font-size:.64rem;
-  font-weight:800;
-  letter-spacing:.06em;
-  padding:.3rem .7rem;
-  border-radius:99px;
-}
-
-/* ESPACIO DEL TEXTO */
-.bono-card .card-body{
-  padding:16px;
-}
-
-.bono-card .card-body h3{
-  font-family:'Inter',sans-serif;
-  font-weight:700;
-  font-size:.98rem;
-  margin:0 0 .55rem;
-  line-height:1.25;
-}
-
-.bono-card .card-body p{
-  color:var(--gris);
-  font-size:.86rem;
-  line-height:1.5;
-  margin:0;
-}
+.grid-bonos{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.1rem;margin-top:2.2rem;}
+.bono-card{padding:0;overflow:hidden;position:relative;}
+.bono-numero{position:absolute;top:.9rem;left:.9rem;z-index:2;background:rgba(0,0,0,.6);backdrop-filter:blur(3px);color:#fff;font-size:.64rem;font-weight:800;letter-spacing:.06em;padding:.3rem .7rem;border-radius:99px;}
+.bono-card .card-body h3{font-family:'Inter',sans-serif;font-weight:700;font-size:.98rem;margin-bottom:.4rem;}
+.bono-card .card-body p{color:var(--gris);font-size:.86rem;line-height:1.55;}
 
 /* comparador antes/después — reutilizable */
 .comparador{position:relative;width:100%;aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;border:1px solid var(--borde);cursor:ew-resize;user-select:none;touch-action:none;box-shadow:0 16px 40px -26px rgba(0,0,0,.6);}
@@ -374,116 +330,6 @@ section{padding:5rem 0;}
 footer{padding:3rem 0 7rem;border-top:1px solid var(--borde);text-align:center;}
 footer .flogo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;margin-bottom:.7rem;text-transform:uppercase;}
 footer p{color:rgba(255,255,255,.35);font-size:.74rem;}
-
-/* ---------- CONVERSOR DE MONEDAS ---------- */
-
-.precio-monedas{
-  margin:22px auto 0;
-  padding:18px;
-  border-radius:18px;
-  border:1px solid var(--borde);
-  background:rgba(255,255,255,.03);
-  max-width:440px;
-  text-align:center;
-}
-
-.precio-monedas h3{
-  margin:0 0 6px;
-  font-size:1rem;
-  color:#fff;
-}
-
-.precio-monedas p{
-  margin:0 0 14px;
-  color:var(--gris);
-  font-size:.82rem;
-}
-
-#selectorMoneda{
-  width:100%;
-  padding:13px 14px;
-  border-radius:12px;
-  border:1px solid var(--borde);
-  background:#171717;
-  color:#fff;
-  font-size:.95rem;
-  outline:none;
-}
-
-.precio-convertido{
-  margin-top:18px;
-}
-
-#precioFinal{
-  display:block;
-  font-family:'Bebas Neue',sans-serif;
-  font-size:2.7rem;
-  color:var(--verde);
-  line-height:1;
-}
-
-#codigoMoneda{
-  display:block;
-  margin-top:4px;
-  color:var(--gris);
-  letter-spacing:.12em;
-  font-size:.78rem;
-}
-/* ===== CONVERSOR DE MONEDAS ===== */
-
-.precio-monedas{
-  margin:22px auto 0;
-  padding:18px;
-  max-width:440px;
-  text-align:center;
-  border:1px solid var(--borde);
-  border-radius:18px;
-  background:rgba(255,255,255,.03);
-}
-
-.precio-monedas h3{
-  margin:0 0 6px;
-  color:#fff;
-  font-size:1rem;
-}
-
-.precio-monedas p{
-  margin:0 0 14px;
-  color:var(--gris);
-  font-size:.82rem;
-}
-
-#selectorMoneda{
-  width:100%;
-  padding:13px 14px;
-  border-radius:12px;
-  border:1px solid var(--borde);
-  background:#171717;
-  color:#fff;
-  font-size:.95rem;
-  outline:none;
-}
-
-.precio-convertido{
-  margin-top:18px;
-}
-
-#precioFinal{
-  display:block;
-  font-family:'Bebas Neue',sans-serif;
-  font-size:2.8rem;
-  color:var(--verde);
-  line-height:1;
-}
-
-#codigoMoneda{
-  display:block;
-  margin-top:4px;
-  color:var(--gris);
-  letter-spacing:.12em;
-  font-size:.78rem;
-}
-
 </style>
 </head>
 <body>
@@ -514,7 +360,7 @@ footer p{color:rgba(255,255,255,.35);font-size:.74rem;}
   // ---- ENLACES (cambia esto y se actualiza en todos los botones de la página) ----
   const ENLACES = {
     hotmart: 'https://pay.hotmart.com/K106351176W',
-    whatsapp: 'https://wa.me/5219997066968'
+    whatsapp: 'https://wa.me/521931974232'
   };
 
   // ---- VIDEO DEL HERO ----
@@ -591,12 +437,7 @@ footer p{color:rgba(255,255,255,.35);font-size:.74rem;}
     badge: { texto: 'VISTAZO REAL', emoji: '👀' },
     titulo: 'Mira Algunas Páginas del Manual',
     subtitulo: 'Contenido real, explicado con capturas, tablas y ejemplos — no solo texto.',
-    imagenes: ['fotos/pagina-1.jpg',
-    'fotos/pagina-2.jpg',
-    'fotos/pagina-3.jpg',
-    'fotos/pagina-4.jpg',
-    'fotos/pagina-5.jpg',
-    'fotos/pagina-6.jpg'],
+    imagenes: [],
     fraseCierre: '¿Vas a seguir aprendiendo por prueba y error, o vas a aprenderlo con criterio técnico desde el inicio?',
     textoBoton: 'Quiero el manual'
   };
@@ -608,41 +449,17 @@ footer p{color:rgba(255,255,255,.35);font-size:.74rem;}
   // El campo "icono" acepta las mismas palabras que en LOGROS.
   // El campo "imagen" es opcional (ruta/URL de una foto o mockup del bono).
   // =====================================================================
- const BONOS = {
-  badge: { texto: 'INCLUIDO SIN COSTO EXTRA', emoji: '🎁' },
-  titulo: 'También Vas a Recibir 4 Bonos Exclusivos',
-  subtitulo: 'Recursos profesionales incluidos sin costo extra para ofrecer un servicio de mayor calidad.',
-  tarjetas: [
-    {
-      numero: 'Regalo 1',
-      icono: 'graduacion',
-      imagen: 'fotos/regalo-1.jpg',
-      titulo: 'Formato de Garantía Editable',
-      texto: 'Plantilla lista para personalizar en Canva, imprimir y entregar a cada cliente.'
-    },
-    {
-      numero: 'Regalo 2',
-      icono: 'seguridad',
-      imagen: 'fotos/regalo-2.jpg',
-      titulo: 'Checklist de Control de Calidad',
-      texto: 'Verifica cada herramienta, material y paso antes de iniciar y antes de entregar el vehículo para reducir errores en cada servicio.'
-    },
-    {
-      numero: 'Regalo 3',
-      icono: 'proceso',
-      imagen: 'fotos/regalo-3.jpg',
-      titulo: 'Soporte Directo por WhatsApp',
-      texto: 'Resuelve tus dudas durante el proceso con atención y acompañamiento si lo necesitas.'
-    },
-    {
-      numero: 'Regalo 4',
-      icono: 'negocio',
-      imagen: 'fotos/regalo-4.jpg',
-      titulo: 'App PROCAR (Próximamente)',
-      texto: 'Registra clientes, servicios, garantias y consulta tus ganancias semanales, mensuales y anuales.'
-    }
-  ]
-};
+  const BONOS = {
+    badge: { texto: 'INCLUIDO SIN COSTO EXTRA', emoji: '🎁' },
+    titulo: 'También Vas a Recibir 4 Bonos Exclusivos',
+    subtitulo: 'Herramientas listas para usar desde tu primer servicio, incluidas sin costo extra.',
+    tarjetas: [
+      { numero: 'Regalo 1', icono: 'graduacion', imagen: '', titulo: 'Lista de Materiales', texto: 'Todo lo que necesitas comprar antes de tu primer servicio, sin adivinar ni gastar de más.' },
+      { numero: 'Regalo 2', icono: 'seguridad', imagen: '', titulo: 'Errores Comunes', texto: 'Los errores más frecuentes al restaurar faros y cómo evitarlos desde tu primer intento.' },
+      { numero: 'Regalo 3', icono: 'proceso', imagen: '', titulo: 'Soluciones', texto: 'Qué hacer cuando algo no sale como esperabas: soluciones rápidas para problemas reales del proceso.' },
+      { numero: 'Regalo 4', icono: 'negocio', imagen: '', titulo: 'Aprende a Cobrar Bien', texto: 'Cómo poner precio a tu servicio para que sea rentable desde tu primer cliente.' }
+    ]
+  };
 
   // =====================================================================
   // SECCIÓN 3 — QUÉ INCLUYE
@@ -683,8 +500,8 @@ footer p{color:rgba(255,255,255,.35);font-size:.74rem;}
     badge: { texto: 'HISTORIAS REALES', emoji: '💬' },
     titulo: 'Lo Que Dicen Quienes Ya lo Aplican',
     tarjetas: [
-      { texto: 'Recuperé lo que invertí en el manual con mi primer servicio, cobre 60 dolares, gracias bro.', nombre: 'Carlos M.', rol: 'Cliente verificado' },
-      { texto: 'La verdad lo compré con duda porque ya había visto varios videos gratis en youtube, pero me anime y valio la pena, lo que me gustó fue que aquí todo está en orden y no pierdes tiempo buscando información. Ya hice tres trabajos y el formato de garantía me ayudó a verme más serio con mis clientes.', nombre: 'Gerardo Rodriguez.', rol: 'Cliente verificado' },
+      { texto: 'Recuperé lo que invertí en el manual con mi primer servicio, gracias bro.', nombre: 'Carlos M.', rol: 'Cliente verificado' },
+      { texto: 'Ya habia restaurado faros antes, pero este manual me resolvio varias dudas que tenia.', nombre: 'Gerardo Rodriguez.', rol: 'Cliente verificado' },
       { texto: 'Mis faros quedaron como nuevos y aparte lo metere como servicio en mi car wash', nombre: 'Roberto Taboada.', rol: 'Cliente verificado' },
       { texto: 'Lo recomiendo, es necesario tener una guia para siempre saber que hacer, lo implementamos en el taller', nombre: 'Mariana Giroz.', rol: 'Cliente verificado' },
       { texto: 'Me ayudó a mejorar mis trabajos', nombre: 'Luis Pino S.', rol: 'Cliente verificado' }
@@ -703,7 +520,7 @@ footer p{color:rgba(255,255,255,.35);font-size:.74rem;}
     subtitulo: 'Aprende una habilidad que puedes monetizar desde tus primeros clientes.',
     actual: '$347 MXN',
     anterior: '$770 MXN',
-    usd: '≈ USD $20',
+    usd: '≈ USD $19',
     notaMoneda: 'El precio en tu moneda local podrás verlo en Hotmart durante el proceso de pago.',
     garantiaTexto: 'Garantía de satisfacción de 7 días',
     textoBoton: 'Comprar con Hotmart'
@@ -714,7 +531,7 @@ footer p{color:rgba(255,255,255,.35);font-size:.74rem;}
   // ⚠️ "badge" es TEXTO NUEVO agregado con este rediseño.
   // =====================================================================
   const FAQ = {
-    badge: { texto: '¿TIENES DUDAS?'},
+    badge: { texto: 'RESUELVE TUS DUDAS', emoji: '❓' },
     titulo: 'Preguntas Frecuentes',
     preguntas: [
       { p: '¿Necesito experiencia previa?', r: 'No. El manual fue diseñado para principiantes y explica cada paso desde cero.' },
@@ -919,36 +736,17 @@ footer p{color:rgba(255,255,255,.35);font-size:.74rem;}
     <p class="texto-sec centro" id="precio-subtitulo"></p>
 
     <div class="glass precio-card">
-  <p class="anterior" id="precio-anterior"></p>
-  <p class="actual" id="precio-actual"></p>
-  <p class="usd" id="precio-usd"></p>
-  <p class="nota-moneda" id="precio-nota-moneda"></p>
-  <a href="#" class="btn btn-cta btn-cta-enlace btn-block" id="precio-boton"></a>
-  <div class="garantia"><b>✓</b> <span id="precio-garantia"></span></div>
-</div>
+      <p class="anterior" id="precio-anterior"></p>
+      <p class="actual" id="precio-actual"></p>
+      <p class="usd" id="precio-usd"></p>
+      <p class="nota-moneda" id="precio-nota-moneda"></p>
+      <a href="#" class="btn btn-cta btn-cta-enlace btn-block" id="precio-boton"></a>
+      <div class="garantia"><b>✓</b> <span id="precio-garantia"></span></div>
+    </div>
 
-<!-- ===== CONVERSOR DE MONEDAS ===== -->
-<section class="precio-monedas">
-  <h3>Ver precio en tu moneda</h3>
-  <p>Tipo de cambio actualizado automáticamente.</p>
-
-  <select id="selectorMoneda">
-    <option value="MXN">🇲🇽 Peso mexicano</option>
-    <option value="USD">🇺🇸 Dólar estadounidense</option>
-    <option value="COP">🇨🇴 Peso colombiano</option>
-    <option value="CLP">🇨🇱 Peso chileno</option>
-    <option value="PEN">🇵🇪 Sol peruano</option>
-    <option value="ARS">🇦🇷 Peso argentino</option>
-  </select>
-
-  <div class="precio-convertido">
-    <span id="precioFinal">$347</span>
-    <small id="codigoMoneda">MXN</small>
+    <div class="nota-transferencia centro" id="nota-transferencia-precio" style="margin:1.6rem auto 0;"></div>
   </div>
 </section>
-<!-- ================================ -->
-
-<div class="nota-transferencia centro" id="nota-transferencia-precio" style="margin:1.6rem auto 0;"></div>
 <!-- FIN SECCIÓN 6 — PRECIO -->
 
 
