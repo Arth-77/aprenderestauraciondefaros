@@ -968,18 +968,19 @@ footer p{color:rgba(255,255,255,.35);font-size:.74rem;}
   <p>Tipo de cambio actualizado automáticamente.</p>
 
   <select id="selectorMoneda">
-    <option value="MXN">🇲🇽 Peso mexicano</option>
-    <option value="USD">🇺🇸 Dólar estadounidense</option>
-    <option value="COP">🇨🇴 Peso colombiano</option>
-    <option value="CLP">🇨🇱 Peso chileno</option>
-    <option value="PEN">🇵🇪 Sol peruano</option>
-    <option value="ARS">🇦🇷 Peso argentino</option>
-  </select>
+  <option value="MXN">🇲🇽 Peso mexicano</option>
+  <option value="USD">🇺🇸 Dólar estadounidense</option>
+  <option value="EUR">🇪🇺 Euro</option>
+  <option value="COP">🇨🇴 Peso colombiano</option>
+  <option value="CLP">🇨🇱 Peso chileno</option>
+  <option value="PEN">🇵🇪 Sol peruano</option>
+  <option value="ARS">🇦🇷 Peso argentino</option>
+</select>
 
-  <div class="precio-convertido">
-    <span id="precioFinal">$347</span>
-    <small id="codigoMoneda">MXN</small>
-  </div>
+<div class="precio-convertido">
+  <span id="precioFinal">$347</span>
+  <small id="codigoMoneda">MXN</small>
+</div>
 </section>
 <!-- ================================ -->
 
@@ -1331,6 +1332,48 @@ initComparador();
 initReveal();
 initStickyCTA();
 document.getElementById('sticky-boton') && (document.getElementById('sticky-boton').textContent = 'Comprar ahora — ' + HERO.precioActual);
+const PRECIO_MXN = 347;
+
+const selector = document.getElementById("selectorMoneda");
+const precio = document.getElementById("precioFinal");
+const codigo = document.getElementById("codigoMoneda");
+
+const simbolos = {
+  MXN:"$",
+  USD:"US$",
+  EUR:"€",
+  COP:"COP $",
+  CLP:"CLP $",
+  PEN:"S/",
+  ARS:"ARS $"
+};
+
+let tasas = { MXN:1 };
+
+async function cargarMonedas(){
+  try{
+    const res = await fetch("https://open.er-api.com/v6/latest/MXN");
+    const data = await res.json();
+
+    tasas = {
+      MXN: 1,
+      USD: data.rates.USD,
+      EUR: data.rates.EUR,
+      COP: data.rates.COP,
+      CLP: data.rates.CLP,
+      PEN: data.rates.PEN,
+      ARS: data.rates.ARS
+    };
+
+    actualizarPrecio();
+  }catch(error){
+    console.error("Error al cargar monedas:", error);
+    actualizarPrecio();
+  }
+}
+
+selector.addEventListener("change", actualizarPrecio);
+cargarMonedas();
 </script>
 <a
 href="https://wa.me/5299997066968?text=Hola,%20me%20interesa%20el%20manual.%20¿Podrías%20darme%20más%20información?"
