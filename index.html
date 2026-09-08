@@ -69,14 +69,11 @@ section{padding:5rem 0;}
   width:100%;
   background:linear-gradient(90deg,#14b814 0%,#1fd01f 50%,#12b312 100%);
   color:#fff;
-  text-shadow:
-  0 1px 1px rgba(0,0,0,.35),
-  0 2px 8px rgba(0,0,0,.25);
   text-align:center;
   padding:.7rem 1rem;
-  font-weight:700;
-  position:relative;
-  overflow:hidden;
+  font-weight:900;
+
+  font-size: 1.15rem; 
 }
 .banner-promo::before,
 .banner-promo::after{
@@ -140,8 +137,13 @@ section{padding:5rem 0;}
   box-shadow:0 2px 10px rgba(0,0,0,.25);
 }
 @media (max-width:768px){
-  .banner-promo{position:relative;padding:.55rem 2.5rem;font-size:.82rem;line-height:1.15;text-align:center;}
-  .banner-promo #banner-promo-texto{display:block;}
+  .banner-promo{
+    position:relative;
+    padding:.65rem 2.5rem;
+    font-size: 0.95rem;   /* antes .82rem */
+    line-height:1.15;
+    text-align:center;
+  }
 }
 
 /* burbujas decorativas del hero — puro detalle visual, sin contenido */
@@ -193,33 +195,37 @@ section{padding:5rem 0;}
 .badge-seccion .emoji{font-size:1.3rem;flex-shrink:0;}
 @media(max-width:420px){.badge-seccion .pill{font-size:.7rem;padding:.45rem .9rem;}}
 
-/* ---------- sello circular sobre el comparador ---------- */
-.comparador-wrap{position:relative;max-width:560px;margin:2.4rem auto 0;}
+/* ---------- SELLO MEDALLA PNG ---------- */
+
+.comparador-wrap{
+  position:relative;
+  max-width:560px;
+  margin:2.4rem auto 0;
+  overflow:visible;
+}
+
 .sello{
   position:absolute;
-  top:-16px;
-  right:-14px;
-  width:88px;
-  height:88px;
-  border-radius:50%;
-  background:var(--verde);
-  color:#06140c;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  font-size:.6rem;
-  font-weight:700;
-  line-height:1.15;
-  letter-spacing:.02em;
-  transform:rotate(9deg);
-  box-shadow:0 12px 26px -10px rgba(0,255,136,.55);
-  border:2px dashed rgba(6,20,12,.4);
-  padding:.4rem;
-  z-index:5;
+  top:-18px;
+  right:-18px;
+  width:112px;
+  z-index:20;
 }
-@media(max-width:480px){.sello{width:72px;height:72px;font-size:.52rem;top:-10px;right:-8px;}}
 
+.sello img{
+  width:100%;
+  height:auto;
+  display:block;
+  filter:drop-shadow(0 10px 20px rgba(255,200,40,.45));
+}
+
+@media(max-width:480px){
+  .sello{
+    width:86px;
+    top:-12px;
+    right:-10px;
+  }
+}
 /* ---------- LOGROS (qué vas a lograr) — con imagen/ícono arriba ---------- */
 .grid-logros{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;margin-top:2.4rem;}
 .logro{padding:0;overflow:hidden;}
@@ -309,9 +315,34 @@ section{padding:5rem 0;}
 .comp-antes{clip-path:inset(0 calc(100% - var(--pos,50%)) 0 0);}
 .ph-antes{background:linear-gradient(150deg,#3a3624,#7a6a32 45%,#4d4626);}
 .ph-despues{background:linear-gradient(150deg,#0f1b14,#1c3a28 40%,#cdeede 75%);}
-.comp-tag{position:absolute;top:.8rem;font-size:.62rem;font-weight:700;letter-spacing:.05em;padding:.3rem .65rem;border-radius:6px;background:rgba(0,0,0,.6);z-index:3;}
-.tag-antes{left:.8rem;color:#ffd773;}
-.tag-despues{right:.8rem;color:var(--verde);}
+.comp-tag{
+  position:absolute;
+  bottom:14px;
+  top:auto;
+
+  font-size:.68rem;
+  font-weight:800;
+  letter-spacing:.08em;
+
+  padding:.42rem .85rem;
+  border-radius:999px;
+
+  background:rgba(10,10,10,.82);
+  backdrop-filter:blur(8px);
+
+  border:1px solid rgba(255,255,255,.08);
+  z-index:3;
+}
+
+.tag-antes{
+  left:14px;
+  color:#F6C453;
+}
+
+.tag-despues{
+  right:14px;
+  color:#00F07A;
+}
 .comp-handle{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:0;z-index:4;}
 .comp-handle::before{content:"";position:absolute;top:0;bottom:0;left:0;width:2px;background:rgba(255,255,255,.85);}
 .comp-handle .grip{position:absolute;top:50%;left:0;transform:translate(-50%,-50%);width:40px;height:40px;border-radius:50%;background:var(--verde);display:flex;align-items:center;justify-content:center;color:#06140c;font-weight:700;}
@@ -568,16 +599,16 @@ footer p{color:rgba(255,255,255,.35);font-size:.74rem;}
   // El campo "imagen" es opcional: pon una ruta/URL (ideal una foto real) y se
   // muestra en vez del ícono. Si lo dejas vacío '', se usa el ícono.
   const LOGROS = {
-    badge: { texto: 'LO QUE VAS A LOGRAR', emoji: '🎯' },
+    badge: { texto: 'RESULTADOS REALES', emoji: '🎯' },
     sello: '+3 AÑOS DE EXPERIENCIA REAL',
     titulo: '¿Qué Vas a Lograr?',
     subtitulo: 'No es un curso teórico. Es un oficio que puedes empezar a cobrar esta semana.',
     tarjetas: [
-      { icono: 'negocio', imagen: '', titulo: 'Cobras tu primer servicio en menos de una semana', texto: 'Aprendes el proceso completo y puedes ofrecerlo de inmediato.' },
-      { icono: 'proceso', imagen: '', titulo: 'Conviertes un faro opaco en una fuente de ingresos', texto: 'Un servicio de 2 horas que se paga solo desde el primer cliente.' },
-      { icono: 'persona', imagen: '', titulo: 'Atiendes clientes sin horarios fijos', texto: 'Lo haces como ingreso extra o como negocio de tiempo completo.' },
-      { icono: 'graduacion', imagen: '', titulo: 'Construyes un oficio que se repite todos los días', texto: 'Miles de autos circulan a diario con faros que necesitan este servicio.' },
-      { icono: 'estrella', imagen: '', titulo: 'Aplicas la misma técnica en cualquier ciudad', texto: 'El proceso funciona igual sin importar dónde vivas.' }
+      { icono: 'negocio', imagen: 'fotos/logro-1.webp', titulo: 'Cobras tu primer servicio en menos de una semana', texto: 'Aprendes el proceso completo y puedes ofrecerlo de inmediato.' },
+      { icono: 'proceso', imagen: 'fotos/logro-2.webp', titulo: 'Conviertes un faro opaco en una fuente de ingresos', texto: 'Un servicio de 2 horas que se paga solo desde el primer cliente.' },
+      { icono: 'persona', imagen: 'fotos/logro-3.webp', titulo: 'Atiendes clientes sin horarios fijos', texto: 'Lo haces como ingreso extra o como negocio de tiempo completo.' },
+      { icono: 'graduacion', imagen: 'fotos/logro-4.webp', titulo: 'Construyes un oficio que se repite todos los días', texto: 'Miles de autos circulan a diario con faros que necesitan este servicio.' },
+      { icono: 'estrella', imagen: 'fotos/logro-5.webp', titulo: 'Aplicas la misma técnica en cualquier ciudad', texto: 'El proceso funciona igual sin importar dónde vivas.' }
     ]
   };
 
@@ -788,7 +819,9 @@ footer p{color:rgba(255,255,255,.35);font-size:.74rem;}
     <p class="texto-sec centro" id="logros-subtitulo"></p>
 
     <div class="comparador-wrap">
-      <div class="sello" id="logros-sello"></div>
+<div class="sello">
+  <img src="fotos/sello-medalla.png" alt="+3 años de experiencia real">
+</div>
       <div class="comparador" id="comparador-logros">
         <div class="comp-despues ph-despues" id="comp-despues"></div>
         <div class="comp-antes ph-antes" id="comp-antes"></div>
@@ -1053,13 +1086,23 @@ function renderPromo(){
 function renderVideo(){
   const box = document.querySelector('.video-box');
   if(!box || !VIDEO.url) return;
+
   box.innerHTML = VIDEO.tipo === 'mp4'
     ? `<video
-    src="${VIDEO.url}"
-    controls
-    playsinline>
-</video>`
-    : `<iframe src="${VIDEO.url}" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+        src="${VIDEO.url}"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster="fotos/portada-video.jpg"
+        controls>
+      </video>`
+    : `<iframe
+        src="${VIDEO.url}"
+        allow="autoplay; fullscreen"
+        allowfullscreen>
+      </iframe>`;
 }
 
 /* ---------- SECCIÓN 1: HERO ---------- */
