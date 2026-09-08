@@ -1371,7 +1371,16 @@ async function cargarMonedas(){
     actualizarPrecio();
   }
 }
+function actualizarPrecio(){
+  const moneda = selector.value;
+  const valor = PRECIO_MXN * (tasas[moneda] || 1);
 
+  precio.textContent =
+    simbolos[moneda] +
+    Math.round(valor).toLocaleString("es-MX");
+
+  codigo.textContent = moneda;
+}
 selector.addEventListener("change", actualizarPrecio);
 cargarMonedas();
 </script>
