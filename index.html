@@ -875,6 +875,7 @@ footer p{color:rgba(255,255,255,.35);font-size:.74rem;}
 
     <div class="demo-pulido-wrap">
       <div class="demo-pulido" id="demo-pulido">
+        <canvas id="canvasLimpio"></canvas>
         <canvas id="canvasPulido"></canvas>
         <canvas id="canvasChispas"></canvas>
         <div class="hint-pulido" id="hint-pulido">
@@ -1425,25 +1426,25 @@ function initReveal(){
 function initDemoPulido(){
   const wrap   = document.getElementById('demo-pulido');
   const canvas = document.getElementById('canvasPulido');
+  const canvasLimpio = document.getElementById('canvasLimpio');
   const chispaCanvas = document.getElementById('canvasChispas');
   const hint   = document.getElementById('hint-pulido');
   const mensaje = document.getElementById('mensaje-completado');
   const btnReset = document.getElementById('btn-reset-pulido');
-  if(!wrap || !canvas || !chispaCanvas) return;
+  if(!wrap || !canvas || !canvasLimpio || !chispaCanvas) return;
   if(!IMAGENES.fotoAntesFaro || !IMAGENES.fotoDespuesFaro){
     document.getElementById('sec-demo-pulido').style.display = 'none';
     return;
   }
 
   const ctx  = canvas.getContext('2d');
+  const ctxLimpio = canvasLimpio.getContext('2d');
   const cctx = chispaCanvas.getContext('2d');
   const dpr  = window.devicePixelRatio || 1;
   let W = 0, H = 0, listos = 0, interactuo = false, chispas = [];
 
   const imgSucio  = new Image();
   const imgLimpio = new Image();
-  imgSucio.crossOrigin  = 'anonymous';
-  imgLimpio.crossOrigin = 'anonymous';
   imgSucio.onload  = () => { if(++listos === 2) iniciar(); };
   imgLimpio.onload = () => { if(++listos === 2) iniciar(); };
   imgSucio.onerror = imgLimpio.onerror = () => { document.getElementById('sec-demo-pulido').style.display = 'none'; };
@@ -1453,11 +1454,12 @@ function initDemoPulido(){
   function ajustarTamano(){
     const rect = wrap.getBoundingClientRect();
     W = rect.width; H = rect.height;
-    [canvas, chispaCanvas].forEach(c=>{
+    [canvas, canvasLimpio, chispaCanvas].forEach(c=>{
       c.width  = W * dpr; c.height = H * dpr;
       c.style.width  = W + 'px'; c.style.height = H + 'px';
     });
     ctx.setTransform(dpr,0,0,dpr,0,0);
+    ctxLimpio.setTransform(dpr,0,0,dpr,0,0);
     cctx.setTransform(dpr,0,0,dpr,0,0);
   }
 
@@ -1482,10 +1484,14 @@ function initDemoPulido(){
 
   function iniciar(){
     ajustarTamano();
+    // capa de fondo: foto limpia, fija, en su propio canvas
+    ctxLimpio.globalCompositeOperation = 'source-over';
+    ctxLimpio.clearRect(0,0,W,H);
+    dibujarCover(ctxLimpio, imgLimpio);
+    // capa superior: foto opaca, la que se borra con el dedo
     ctx.globalCompositeOperation = 'source-over';
     ctx.clearRect(0,0,W,H);
-    dibujarCover(ctx, imgLimpio); // capa limpia queda debajo
-    dibujarCover(ctx, imgSucio);  // capa opaca se borra al deslizar
+    dibujarCover(ctx, imgSucio);
     reiniciarProgreso();
     hint.classList.remove('oculto');
     interactuo = false;
