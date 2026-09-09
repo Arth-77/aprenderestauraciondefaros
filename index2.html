@@ -559,19 +559,16 @@ footer p{color:rgba(255,255,255,.35);font-size:.74rem;}
 .nota-comprobante{margin-top:1rem;color:var(--gris);font-size:.8rem;line-height:1.5;}
 
 /* ---------- DEMO INTERACTIVO: PULE EL FARO CON TU DEDO (efecto original) ---------- */
-.demo-pulido-wrap{max-width:480px;width:100%;margin:2.2rem auto 0;box-sizing:border-box;}
+.demo-pulido-wrap{max-width:480px;margin:2.2rem auto 0;}
 .demo-pulido{
-  position:relative;width:100%;max-width:100%;aspect-ratio:4/3;
+  position:relative;width:100%;aspect-ratio:4/3;
   border-radius:var(--radius);overflow:hidden;
   border:1px solid var(--borde);
   box-shadow:0 20px 50px -26px rgba(0,0,0,.7);
-  cursor:crosshair;background:#0d0d0d;
-  overscroll-behavior:contain;
-  box-sizing:border-box;
+  cursor:crosshair;touch-action:none;background:#0d0d0d;
 }
-.demo-pulido canvas{position:absolute;inset:0;width:100%;height:100%;max-width:100%;display:block;}
-#canvasPulido{touch-action:none;}
-#canvasChispas,#canvasLimpio{pointer-events:none;}
+.demo-pulido canvas{position:absolute;inset:0;width:100%;height:100%;}
+#canvasChispas{pointer-events:none;}
 .hint-pulido{
   position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
   flex-direction:column;gap:.5rem;background:rgba(0,0,0,.4);color:#fff;
@@ -1584,31 +1581,28 @@ function initDemoPulido(){
 
   function posicion(e){
     const rect = canvas.getBoundingClientRect();
-    return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+    const t = e.touches && e.touches[0];
+    return { x: (t ? t.clientX : e.clientX) - rect.left, y: (t ? t.clientY : e.clientY) - rect.top };
   }
 
   function mover(e){
     if(!interactuo){ interactuo = true; hint.classList.add('oculto'); }
     const p = posicion(e);
     borrarEn(p.x, p.y);
+    if(e.cancelable) e.preventDefault();
   }
 
   canvas.addEventListener('pointerdown', e => { canvas.setPointerCapture(e.pointerId); mover(e); });
   canvas.addEventListener('pointermove', e => { if(e.buttons > 0) mover(e); });
+  canvas.addEventListener('touchstart', mover, { passive:false });
+  canvas.addEventListener('touchmove', mover, { passive:false });
 
   btnReset && btnReset.addEventListener('click', iniciar);
 
-  // Solo redibuja si el ANCHO real cambió (evita el parpadeo cuando en
-  // móvil la barra de direcciones se oculta/muestra al hacer scroll,
-  // lo cual dispara 'resize' aunque el ancho no haya cambiado).
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-      if(listos !== 2) return;
-      const nuevoAncho = wrap.getBoundingClientRect().width;
-      if(Math.abs(nuevoAncho - W) > 2) iniciar();
-    }, 250);
+    resizeTimer = setTimeout(() => { if(listos === 2) iniciar(); }, 250);
   });
 
   animando = true;
